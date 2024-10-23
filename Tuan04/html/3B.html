@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register Form</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <style>
+        body {
+            background-image: url('../img/Cinema-9.png'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            height: 100vh; 
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: center;
+            border-bottom: none;
+        }
+
+        .modal-header button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: grey;
+            margin-right: 15px;
+        }
+
+        .modal-header button.active {
+            color: orange;
+            text-decoration: underline;
+        }
+
+        .modal-header button:hover {
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: orange;
+            border-color: orange;
+        }
+        .modal-content {
+            background: rgba(255, 255, 255, 0.9); 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Đăng Nhập / Đăng Ký
+        </button>
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-login active" onclick="showLoginForm()">Đăng Nhập</button>
+                        <button type="button" class="btn-register" onclick="showRegisterForm()">Đăng Ký</button>
+                    </div>
+
+                    <div class="modal-body" id="loginForm">
+                        <form>
+                            <div class="form-group">
+                                <label for="loginEmail">Email</label>
+                                <input type="email" class="form-control" id="loginEmail" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Mật khẩu</label>
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Mật khẩu">
+                            </div>
+                            <div class="form-group">
+                                <a href="#">Quên mật khẩu?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Đăng Nhập</button>
+                        </form>
+                    </div>
+
+                    <div class="modal-body" id="registerForm" style="display:none;">
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Họ tên">
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Số điện thoại">
+                                </div>
+                                <div class="col">
+                                    <select class="form-control">
+                                        <option>Chọn giới tính</option>
+                                        <option value="male">Nam</option>
+                                        <option value="female">Nữ</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="password" class="form-control" placeholder="Mật khẩu">
+                                </div>
+                                <div class="col">
+                                    <input type="password" class="form-control" placeholder="Xác nhận mật khẩu">
+                                </div>
+                            </div>
+                            <div class="form-row mt-3">
+                                <div class="col">
+                                    <select class="form-control">
+                                        <option>Chọn thành phố</option>
+                                        <option value="hcm">TP. Hồ Chí Minh</option>
+                                        <option value="hn">Hà Nội</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <select class="form-control">
+                                        <option>Quận</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="text" class="form-control" placeholder="Địa chỉ">
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="date" class="form-control" placeholder="Chọn ngày">
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="text" class="form-control" placeholder="Nhập mã captcha">
+                                <img src="captcha_image.png" alt="captcha" class="mt-2">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Đăng Ký</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLoginForm() {
+            document.getElementById("loginForm").style.display = "block";
+            document.getElementById("registerForm").style.display = "none";
+            document.querySelector('.btn-login').classList.add('active');
+            document.querySelector('.btn-register').classList.remove('active');
+        }
+
+        function showRegisterForm() {
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("registerForm").style.display = "block";
+            document.querySelector('.btn-register').classList.add('active');
+            document.querySelector('.btn-login').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
